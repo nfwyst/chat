@@ -13,13 +13,25 @@ const renderer = merge(base, {
   },
   module: {
     rules: [{
-      test: /.jsx?$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
       use: [{
         loader: "babel-loader",
         options: {
           presets: ["es2017", "react"],
           plugins: ["transform-class-properties"]
+        }
+      }]
+    }, {
+      test: /\.css$/,
+      include: /node_modules/,
+      use: ['style-loader', 'css-loader']
+    }, {
+      test: /\.(eot|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      use: [{
+        loader: "file-loader",
+        options: {
+          publicPath: "./dist/"
         }
       }]
     }]
