@@ -7,7 +7,7 @@ export default class Conversation extends React.Component {
         <ul className="list-group l-chat-conversation">
           <li className="list-group-item">
             <div className="media-body">
-              <time className="media-body__time">10.10.2010</time>
+              <time className="media-body-time">10.10.2010</time>
               <strong>Name:</strong>
               <p>Text...</p>
             </div>

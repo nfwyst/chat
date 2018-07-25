@@ -58,13 +58,6 @@ tasks.push(createWindow).push(installExt);
 
 app.on('ready', tasks.execu.bind(tasks));
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
     app.quit(); 
-  }
-});
-app.on('active', () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
 });
 

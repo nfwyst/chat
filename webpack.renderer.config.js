@@ -27,6 +27,10 @@ const renderer = merge(base, {
       include: /node_modules/,
       use: ['style-loader', 'css-loader']
     }, {
+      test: /\.css$/,
+      exclude: /node_modules/,
+      use: ['style-loader', 'css-loader']
+    }, {
       test: /\.(eot|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       use: [{
         loader: "file-loader",
