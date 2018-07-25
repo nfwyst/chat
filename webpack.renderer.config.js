@@ -31,7 +31,7 @@ const renderer = merge(base, {
       use: [{
         loader: "file-loader",
         options: {
-          publicPath: "./dist/"
+          publicPath: "./"
         }
       }]
     }]
