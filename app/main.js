@@ -28,7 +28,8 @@ let tasks = {
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1000,
-    height: 600
+    height: 600,
+    frame: false,
   });
 
   mainWindow.loadURL(url.format({
