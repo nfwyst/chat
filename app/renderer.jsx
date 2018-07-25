@@ -1,14 +1,14 @@
-import manifest from '../package.json';
+import React from "react";
+import ReactDOM from "react-dom";
+import Header from "./components/Header.jsx";
+import Copycat from "./components/Copycat.jsx";
 
-const platforms = {
-  win32: 'Windows',
-  darwin: 'macOS',
-  linux: 'Linux',
-};
-
-function write(id, text) {
-  document.getElementById(id).innerHTML = text;
-}
-write("app", `${manifest.name} v.${manifest.version}`);
-write("os", `Platform: ${platforms[ process.platform ]}`);
-write("electronVer", `Electron v.${process.versions.electron}`);
+ReactDOM.render((
+  <div>
+    <Header />
+    <Copycat>
+      <li>Child node</li>
+      <li>Child node</li>
+    </Copycat>
+  </div> 
+), document.querySelector("#app"));

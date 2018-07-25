@@ -15,7 +15,13 @@ const main = merge(base, {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: "babel-loader"
+        use: [{
+          loader: "babel-loader",
+          options: {
+            presets: ["es2017"],
+            plugins: ["transform-class-properties"]
+          }
+        }]
       }
     ]
   },
