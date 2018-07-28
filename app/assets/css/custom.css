@@ -1,3 +1,7 @@
+body {
+  opacity: .95;
+}
+
 .l-chat {
   display: flex;
   flex-flow: column nowrap;
@@ -20,3 +24,4 @@
 .form-control:focus {
   cursor: auto;
 }
+

@@ -30,6 +30,7 @@ function createWindow() {
     width: 1000,
     height: 600,
     frame: false,
+    transparent: true
   });
 
   mainWindow.loadURL(url.format({
@@ -59,6 +60,5 @@ tasks.push(createWindow).push(installExt);
 
 app.on('ready', tasks.execu.bind(tasks));
 app.on('window-all-closed', () => {
-    app.quit(); 
+    app.quit();
 });
-

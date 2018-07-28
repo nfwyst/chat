@@ -3,8 +3,24 @@ import { remote } from 'electron';
 const win = remote.getCurrentWindow();
 
 export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMaximized: win.isMaximized(),
+    }
+  }
+  componentWillMount() {
+    ['maximize', 'unmaximize'].forEach(type => {
+      win.on(type, this.updateState);
+    });
+  }
+  updateState = () => {
+    this.setState({
+      isMaximized: win.isMaximized(),
+    });
+  }
   onRestore = () => {
-    win.restore();
+    win.unmaximize();
   }
   onMaximize = () => {
     win.maximize();
@@ -13,12 +29,21 @@ export default class Header extends React.Component {
     win.close();
   }
   render() {
+    const { isMaximized } = this.state;
     return (
       <header className="toolbar toolbar-header">
         <div className="toolbar-actions">
-          <button className="btn btn-default pull-right" onClick={this.onClose}>
+          <button className="btn btn-default pull-right btn-close" onClick={this.onClose}>
             <span className="icon icon-cancel"></span>
           </button>
+          { isMaximized ? 
+              (<button className="btn btn-default pull-right" onClick={this.onRestore}>
+                <span className="icon icon-resize-small"></span>
+              </button>) :
+              (<button className="btn btn-default pull-right" onClick={this.onMaximize}>
+                <span className="icon icon-resize-full"></span>
+              </button>)
+          }
         </div>
       </header>
     )

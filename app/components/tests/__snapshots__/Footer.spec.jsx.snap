@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer match previously saved snaphsot 1`] = `
+<footer
+  className="toolbar toolbar-footer"
+>
+  <h1
+    className="title"
+  >
+    chat
+     v.
+    1.0.0
+  </h1>
+</footer>
+`;

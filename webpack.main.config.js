@@ -5,7 +5,7 @@ const base = require("./webpack.base.config");
 const buildPath = path.resolve(__dirname, "./dist");
 
 const main = merge(base, {
-  entry: "./app/main.js",
+  entry: ["babel-polyfill", "./app/main.js"],
   output: {
     filename: "main.js",
     path: buildPath
@@ -15,13 +15,15 @@ const main = merge(base, {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{
-          loader: "babel-loader",
-          options: {
-            presets: ["es2017"],
-            plugins: ["transform-class-properties"]
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["es2017"],
+              plugins: ["transform-class-properties"]
+            }
           }
-        }]
+        ]
       }
     ]
   },
